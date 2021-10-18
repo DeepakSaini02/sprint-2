@@ -26,7 +26,7 @@
     </style>
 </head>
 <body>
-    <input type="text" id="news">
+    <input oninput="main()" type="text" id="news">
     <button onclick="searchNews()">Search</button>
     <div id="topHeadlines">
 
@@ -38,12 +38,14 @@
 
 let topHeadlines=document.getElementById('topHeadlines');
 
-async function searchNews(){
-    let input=document.getElementById('news').value;
+let timer;
+let input=document.getElementById('news').value;
+async function searchNews(input){
+   
     let res=await fetch(`https://newsapi.org/v2/everything?q=${input}&from=2021-10-18&sortBy=popularity&apiKey=a61c996bbd7441f19f598b25e05a79f7`)
         let data=await res.json()
          console.log(data.articles)
-
+         input.value=null
          localStorage.setItem('searchDetals',JSON.stringify(data.articles))
             window.location.href='search.html';
 }
@@ -79,5 +81,24 @@ async function searchNews(){
 
 } 
 topstories()
+
+async function main(){
+    let input=document.getElementById('news').value;
+    if(input.length<3){
+        return false
+    }
+    let res=await searchNews(input)
+
+    
+}
+
+// function debouncing(f,t){
+//     if(timer){
+//         return clearTimeout(timer)
+//     }
+//     timer=setTimeout(()=>{
+//       f()  
+//     },t)
+// }
 
 </script>
