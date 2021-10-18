@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News App</title>
     <style>
+
+        
         #topHeadlines{
             display: grid;
             gap: 2rem;
@@ -26,8 +28,11 @@
     </style>
 </head>
 <body>
-    <input oninput="main()" type="text" id="news">
-    <button onclick="searchNews()">Search</button>
+    <div >
+        <input oninput="debouncing(main,2000)" type="text" id="news">
+        <button onclick="searchNews()">Search</button>
+    </div>
+ 
     <div id="topHeadlines">
 
     </div>
@@ -39,13 +44,13 @@
 let topHeadlines=document.getElementById('topHeadlines');
 
 let timer;
-let input=document.getElementById('news').value;
-async function searchNews(input){
+async function searchNews(){
+    let input=document.getElementById('news').value;
    
     let res=await fetch(`https://newsapi.org/v2/everything?q=${input}&from=2021-10-18&sortBy=popularity&apiKey=a61c996bbd7441f19f598b25e05a79f7`)
         let data=await res.json()
          console.log(data.articles)
-         input.value=null
+         document.getElementById('news').value=null
          localStorage.setItem('searchDetals',JSON.stringify(data.articles))
             window.location.href='search.html';
 }
@@ -87,18 +92,18 @@ async function main(){
     if(input.length<3){
         return false
     }
-    let res=await searchNews(input)
+    let res=await searchNews()
 
     
 }
 
-// function debouncing(f,t){
-//     if(timer){
-//         return clearTimeout(timer)
-//     }
-//     timer=setTimeout(()=>{
-//       f()  
-//     },t)
-// }
+function debouncing(f,t){
+    if(timer){
+        clearTimeout(timer)
+    }
+    timer=setTimeout(()=>{
+      f()  
+    },t)
+}
 
 </script>
