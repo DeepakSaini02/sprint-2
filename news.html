@@ -5,6 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #newsDetail{
+            display: flex;
+        }
+        #newsDetail>div{
+            display: flex;
+        }
+        #div2{
+            margin: 1rem;
+        }
+        #div2>h4{
+            font-size: 2rem;
+        }
+        #div2>p{
+            font-size: 1.2rem;
+        }
+
+        img{
+            width: 33rem;
+        height: 25rem;
+        }
+
+    </style>
 </head>
 <body>
     <div id="newsDetail">
@@ -21,13 +44,17 @@
     let div=document.createElement('div')
         div.style.border='2px solid black'
         let img=document.createElement('img')
+        let div2=document.createElement('div')
+        div2.id='div2'
         let h4=document.createElement('h4')
         let p=document.createElement('p')
-   
+        let p2=document.createElement('p')
+
+        p2.textContent=news.publishedAt;
         img.src=news.urlToImage;
         h4.textContent=news.title
         p.textContent=news.description;
-
-        div.append(h4,p,img)
+        div2.append(h4,p,p2)
+        div.append(img,div2)
         newsDetail.append(div)
 </script>
