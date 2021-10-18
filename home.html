@@ -1,46 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News App</title>
     <style>
+        #box1 {
+            border: 2px solid black;
+            padding: .7rem;
+            background-color: #3F51B5;
 
-        
+        }
 
-#box1{
-    border: 2px solid black;
-}
-        #topHeadlines{
+        #box1>input {
+            height: 1.2rem;
+            width: 23.2rem;
+            margin-left: 50vw;
+        }
+
+        #div1 {
+            margin: 2px 2px 2px 2px;
+        }
+
+
+        #topHeadlines {
             display: grid;
             gap: 2rem;
             /* width: 60%; */
         }
-        #topHeadlines>div{
-         display: flex;
+
+        #topHeadlines>div {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px;
+            border-bottom: 2px solid;
         }
-        #topHeadlines>div>h4{
-         width: 30%;
+
+        #topHeadlines>div>h4 {
+            width: 30%;
         }
-        #topHeadlines>div>p{
-         width: 30%;
+
+        #topHeadlines>div>p {
+            width: 30%;
         }
-        #topHeadlines>div>img{
-          width: 20%;
+
+        #topHeadlines>div>img {
+            width: 20%;
+        }
+
+        #btn {
+            color: white;
+            background-color: black;
+            border: none;
+            font-size: 19px;
         }
     </style>
 </head>
+
 <body>
 
     <div id="box1">
-        <input oninput="debouncing(main,2000)" type="text" id="news">
+        <a href="home.html">
+            <button id="btn">NEWS.COM</button>
+        </a>
+        <input oninput="debouncing(main,2000)" type="text" id="news" placeholder="Search your news">
         <button onclick="searchNews()">Search</button>
     </div>
- 
+
     <div id="topHeadlines">
 
     </div>
 </body>
+
 </html>
 <script src="home.js"></script>
