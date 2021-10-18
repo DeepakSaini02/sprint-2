@@ -3,7 +3,7 @@ let newsDetail=document.getElementById('newsDetail')
 console.log(news)
 
 let div=document.createElement('div')
-    div.style.border='2px solid black'
+    // div.style.border='2px solid black'
     let img=document.createElement('img')
     let div2=document.createElement('div')
     div2.id='div2'
