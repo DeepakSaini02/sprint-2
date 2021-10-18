@@ -24,7 +24,8 @@ async function searchNews(){
     topHeadlines.innerHTML=null;
     d.forEach(({description,title,urlToImage,publishedAt})=>{
         let div=document.createElement('div')
-        div.style.border='2px solid black'
+        // div.style.border='2px solid black'
+        div.id='div1'
         let img=document.createElement('img')
         let h4=document.createElement('h4')
         let p=document.createElement('p')
