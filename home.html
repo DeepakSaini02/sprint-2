@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="text" id="news">
+    <button>Search</button>
+    <div id="topHeadlines">
+
+    </div>
+</body>
+</html>
+
+<script>
+
+let topHeadlines=document.getElementById('topHeadlines');
+    async function topstories(){
+        let input =document.getElementById('news')
+        let res=await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=a61c996bbd7441f19f598b25e05a79f7`)
+        let data=await res.json()
+         console.log(data.articles) 
+         showHeadline(data.articles)
+    }
+
+  
+ function showHeadline(){
+
+    
+} 
+
+
+</script>
