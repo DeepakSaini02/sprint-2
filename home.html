@@ -27,7 +27,7 @@
 </head>
 <body>
     <input type="text" id="news">
-    <button onclick="topstories()">Search</button>
+    <button onclick="searchNews()">Search</button>
     <div id="topHeadlines">
 
     </div>
@@ -37,6 +37,16 @@
 <script>
 
 let topHeadlines=document.getElementById('topHeadlines');
+
+async function searchNews(){
+    let input=document.getElementById('news').value;
+    let res=await fetch(`https://newsapi.org/v2/everything?q=${input}&from=2021-10-18&sortBy=popularity&apiKey=a61c996bbd7441f19f598b25e05a79f7`)
+        let data=await res.json()
+         console.log(data.articles)
+
+         localStorage.setItem('searchDetals',JSON.stringify(data.articles))
+            window.location.href='search.html';
+}
     async function topstories(){
         let input =document.getElementById('news')
         let res=await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=a61c996bbd7441f19f598b25e05a79f7`)
@@ -68,6 +78,6 @@ let topHeadlines=document.getElementById('topHeadlines');
     })
 
 } 
-
+topstories()
 
 </script>
