@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #topHeadlines{
+            display: grid;
+            gap: 2rem;
+            /* width: 60%; */
+        }
+        #topHeadlines>div{
+         display: flex;
+        }
+        #topHeadlines>div>h4{
+         width: 30%;
+        }
+        #topHeadlines>div>p{
+         width: 30%;
+        }
+        #topHeadlines>div>img{
+          width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div id="topHeadlines">
+
+    </div>
+</body>
+</html>
+<script>
+    let searchDetals=JSON.parse(localStorage.getItem('searchDetals'))
+    let topHeadlines=document.getElementById('topHeadlines');
+    function showHeadline(d){
+    topHeadlines.innerHTML=null;
+    d.forEach(({description,title,urlToImage,publishedAt})=>{
+        let div=document.createElement('div')
+        div.style.border='2px solid black'
+        let img=document.createElement('img')
+        let h4=document.createElement('h4')
+        let p=document.createElement('p')
+
+        img.src=urlToImage;
+        h4.textContent=title
+        p.textContent=description;
+
+        div.append(h4,p,img)
+        topHeadlines.append(div)
+        div.onclick=function(){
+            localStorage.setItem('newsDetails',JSON.stringify({description,title,urlToImage,publishedAt}))
+            window.location.href='news.html';
+        }
+    })
+  
+
+} 
+showHeadline(searchDetals)
+</script>
