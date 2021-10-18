@@ -22,7 +22,7 @@ async function searchNews(){
   
  function showHeadline(d){
     topHeadlines.innerHTML=null;
-    d.forEach(({description,title,urlToImage,publishedAt})=>{
+    d.forEach(({description,title,urlToImage,publishedAt,content})=>{
         let div=document.createElement('div')
         // div.style.border='2px solid black'
         div.id='div1'
