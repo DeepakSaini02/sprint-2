@@ -1,34 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-          #topHeadlines{
+        #topHeadlines {
             display: grid;
             gap: 2rem;
             /* width: 60%; */
         }
-        #topHeadlines>div{
-         display: flex;
+
+        #topHeadlines>div {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px;
+            border-bottom: 2px solid;
         }
-        #topHeadlines>div>h4{
-         width: 30%;
+
+        #topHeadlines>div>h4 {
+            width: 30%;
         }
-        #topHeadlines>div>p{
-         width: 30%;
+
+        #topHeadlines>div>p {
+            width: 30%;
         }
-        #topHeadlines>div>img{
-          width: 20%;
+
+        #topHeadlines>div>img {
+            width: 20%;
+        }
+
+        #btn {
+            color: white;
+            background-color: black;
+            border: none;
+            font-size: 19px;
+        }
+
+        #box1 {
+            border: 2px solid black;
+            padding: .7rem;
+            background-color: #3F51B5;
+
         }
     </style>
 </head>
+
 <body>
+    <div id="box1">
+        <a href="home.html">
+            <button id="btn">NEWS.COM</button>
+        </a>
+    </div>
     <div id="topHeadlines">
 
     </div>
 </body>
+
 </html>
 <script src="search.js"></script>
